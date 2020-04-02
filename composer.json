@@ -1,0 +1,40 @@
+{
+    "name": "wasksofts/omnipay-coinbase",
+    "type": "library",
+     "description": "Coinbase driver for the Omnipay payment processing library",
+    "keywords": [
+        "coinbase",
+        "gateway",
+        "merchant",
+        "omnipay",
+        "pay",
+        "payment"
+    ],
+    "homepage": "https://github.com/wasksofts/omnipay-coinbase",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "stevenkamanu",
+            "email": "mukamanusteven@gmail.com",
+            "homepage": "https://wasksofts.com"
+        }
+    ], 
+    "autoload": {
+        "psr-4": {
+            "Omnipay\\CoinBase\\": "src"
+        }
+    },
+   "require": {
+        "php": "^5.6|^7.1",
+        "omnipay/common": "v3.0.2"
+    },
+    "require-dev": {
+        "omnipay/tests": "^3"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "v1.0"
+        }
+    }
+    ,"minimum-stability": "stable"
+}
