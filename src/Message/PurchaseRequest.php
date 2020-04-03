@@ -4,16 +4,27 @@ namespace Omnipay\CoinBase\Message;
 
 class PurchaseRequest extends AbstractRequest
 {
+    
     public function getData()
     {
+        $this->validate('name', 'description', 'amount', 'currency', 'pricing_type');
+        $data = [];
+
         $data['name'] = $this->getName();
         $data['description']  =  $this->getDescription();
-        $data['local_price']  = $this->getLocalPrice();
         $data['pricing_type'] = $this->getPricingType();
+        $data['redirect_url'] = $this->getRedirectUrl();
+
+        if ($data['pricing_type'] === "fixed_price") {
+            $data['local_price']  = [
+                'amount' => $this->getAmount(),
+                'currency' => $this->getCurrency()
+            ];
+        }
+
         $data['requested_info']  = $this->getRequestedInfo();
         return $data;
     }
-
 
     public function sendData($data)
     {
